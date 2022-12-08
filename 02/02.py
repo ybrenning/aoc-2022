@@ -48,29 +48,13 @@ def part_one() -> None:
         lines = f.readlines()
     
     score = 0
-    for line in lines:  
-        match line[2]:
-            case "X":
-                score += 1
-                match line[0]:
-                    case "A":
-                        score += 3
-                    case "C":
-                        score += 6
-            case "Y":
-                score += 2
-                match line[0]:
-                    case "A":
-                        score += 6
-                    case "B":
-                        score += 3
-            case "Z":
-                score += 3
-                match line[0]:
-                    case "B":
-                        score += 6
-                    case "C":
-                        score += 3
+    for line in lines:
+        score += ALIAS_SYMBOLS[line[2]].value
+
+        for key in COMBINATIONS.keys():
+            if (key[0].name, key[1].name) == (ALIAS_SYMBOLS[line[2]].name, ALIAS_SYMBOLS[line[0]].name):
+                score += COMBINATIONS[key].value
+                break
         
     print(score)
 
