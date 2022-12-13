@@ -1,11 +1,11 @@
 def part_one() -> None:
     with open("input.txt") as f:
         lines = f.readlines()
-    
+
     priorities = 0
     for line in lines:
-        fst, snd = line[:len(line) // 2], line[len(line) // 2:]
-        
+        fst, snd = line[: len(line) // 2], line[len(line) // 2 :]
+
         for char in fst:
             if char in snd:
                 if char.isupper():
@@ -13,14 +13,14 @@ def part_one() -> None:
                 elif char.islower():
                     priorities += ord(char) - 96
                 break
-    
+
     print(priorities)
 
 
 def part_two() -> None:
     with open("input.txt") as f:
         lines = f.readlines()
-    
+
     priorities = 0
     for i in range(0, len(lines), 3):
         for char in lines[i]:
@@ -30,7 +30,7 @@ def part_two() -> None:
                 elif char.islower():
                     priorities += ord(char) - 96
                 break
-    
+
     print(priorities)
 
 

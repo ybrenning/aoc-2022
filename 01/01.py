@@ -9,7 +9,7 @@ def part_one() -> None:
             curr = 0
         else:
             curr += int(line)
-    
+
     print(max)
 
 
@@ -24,7 +24,7 @@ def part_two() -> None:
             curr = 0
         else:
             curr += int(line)
-    
+
     top.sort(reverse=True)
     print(sum(top[:3]))
 
