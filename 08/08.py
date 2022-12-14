@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 def part_one() -> None:
     with open("input.txt") as f:
         lines = [line.strip() for line in f.readlines()]
