@@ -120,7 +120,7 @@ def part_two() -> None:
 
 def main() -> None:
     part_one()
-
+    part_two()
 
 
 if __name__ == "__main__":
