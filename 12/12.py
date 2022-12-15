@@ -18,7 +18,7 @@ def bfs(nodes: list[list[Node]], src: Node | None, dest: Node | None) -> int:
         raise ValueError("Source and dest nodes not found")
 
     queue = []
-    
+
     visited = [[] for _ in range(0, len(nodes))]
     dist = [[] for _ in range(0, len(nodes))]
 
@@ -26,26 +26,30 @@ def bfs(nodes: list[list[Node]], src: Node | None, dest: Node | None) -> int:
         for _ in range(0, len(nodes[y])):
             visited[y].append(False)
             dist[y].append(INF)
-    
+
     visited[src.coords[1]][src.coords[0]] = True
     dist[src.coords[1]][src.coords[0]] = 0
     queue.append(src)
-    
+
     while len(queue) != 0:
         curr = queue.pop(0)
-        x, y, = curr.coords
+        (
+            x,
+            y,
+        ) = curr.coords
         for i in range(0, len(curr.next)):
             xn, yn = curr.next[i].coords
-            
+
             if not visited[yn][xn]:
                 visited[yn][xn] = True
                 dist[yn][xn] = dist[y][x] + 1
                 queue.append(curr.next[i])
-                
+
                 if curr.next[i].coords == dest.coords:
                     return dist[yn][xn]
-    
+
     return -1
+
 
 def part_one() -> None:
     with open("input.txt") as f:
@@ -57,7 +61,7 @@ def part_one() -> None:
 
     # Create nodes
     start = None
-    end =  None
+    end = None
 
     nodes = []
     for y in range(0, len(lines)):
