@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from itertools import zip_longest
 
 
@@ -6,12 +8,12 @@ def part_one() -> None:
         lines = f.readlines()
 
     packets = [eval(line) for line in lines if len(line.strip()) != 0]
-    
+
     indices = []
     for i in range(0, len(packets), 2):
         if compare(packets[i], packets[i + 1]) == 1:
             indices.append((i + 1) // 2 + 1)
-    
+
     print(sum(indices))
 
 
@@ -20,7 +22,7 @@ def compare(fst, snd):
         return 1
     elif snd is None:
         return -1
-    
+
     if isinstance(fst, int) and isinstance(snd, int):
         if fst < snd:
             return 1
